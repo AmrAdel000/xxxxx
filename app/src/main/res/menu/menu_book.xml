@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <item
+
+        android:id="@+id/item"
+        android:title="انشاء تزكير"
+
+        />
+    <item
+        android:id="@+id/item2"
+        android:title="تغيير لون الخط"/>
+    <item
+        android:id="@+id/item3"
+        android:title="تغيير لون الخلفية"/>
+    <item
+        android:id="@+id/item4"
+        android:title="قفل الملاحظة"/>
+</menu>
