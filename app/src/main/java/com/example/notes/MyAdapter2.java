@@ -12,30 +12,30 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder2> {
-    public static  int marty ;
-    private MyAdapter.ItemClickListener mItemListener ;
+    public static int marty;
+    private MyAdapter.ItemClickListener mItemListener;
 
     ArrayList<String> images;
     ArrayList<String> imagess;
 
     Context context;
 
-    ArrayList<String>  c;
+    ArrayList<String> c;
 
     public MyAdapter2(Context ct, ArrayList<String> array, ArrayList<String> araay2, ArrayList<String> intt, MyAdapter.ItemClickListener itemClickListener) {
 
         context = ct;
         images = araay2;
         imagess = array;
-        c= intt   ;
-        this .mItemListener = itemClickListener ;
+        c = intt;
+        this.mItemListener = itemClickListener;
     }
 
     @NonNull
     @Override
     public MyViewHolder2 onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.row2,parent,false);
+        View view = inflater.inflate(R.layout.row2, parent, false);
         return new MyAdapter2.MyViewHolder2(view);
     }
 
@@ -46,13 +46,19 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder2> {
         holder.itemView.setOnClickListener(view -> {
             mItemListener.onItemClick(c.get(position));//it will get the position of our item in our resycler vew
         });
+        ///////////////////
+        String fullName = mergeNames("amr", "adel");
     }
 
+    public String mergeNames(String first, String second) {
+        return first + " " + second;
+    }
+
+    ///////////////
     @Override
     public int getItemCount() {
-        return imagess.size() ;
+        return imagess.size();
     }
-
 
     public interface ItemClickListener {
 
@@ -63,6 +69,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder2> {
     public class MyViewHolder2 extends RecyclerView.ViewHolder {
         TextView mytext;
         TextView mytext2;
+
         public MyViewHolder2(@NonNull View itemView) {
             super(itemView);
 

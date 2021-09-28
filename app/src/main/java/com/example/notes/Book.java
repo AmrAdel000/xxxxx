@@ -1,27 +1,25 @@
 package com.example.notes;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.notes.model.User;
 
 import java.util.ArrayList;
-
+import java.util.List;
 
 
 public class Book extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
-
+    List<User> userList =new ArrayList<>();
     private  long backpressedtime ;
 
     String namec , num ;
@@ -54,7 +52,10 @@ public class Book extends AppCompatActivity implements PopupMenu.OnMenuItemClick
         taa = findViewById(R.id.textt);
 
       //  getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-
+        userList.add(new User(1,"mohamed",22));
+        userList.add(new User(2,"Amr",22));
+        userList.add(new User(3,"ahmed",22));
+        userList.add(new User(4,"adel",22));
 
 
         shrd = getSharedPreferences("save file" , Context.MODE_PRIVATE);

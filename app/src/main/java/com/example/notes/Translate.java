@@ -3,7 +3,6 @@ package com.example.notes;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -26,7 +25,6 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.notes.databinding.ActivityTranslateBinding;
 import com.mannan.translateapi.Language;
 import com.mannan.translateapi.TranslateAPI;
 
@@ -35,8 +33,7 @@ import java.util.Locale;
 
 public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
-//    Button button;
-    Button buttonn;
+    Button button; Button buttonn;
     RecyclerView      recyclerVieww ;
     ArrayList<String> str ;
     ArrayList<String> araay2 ;
@@ -45,71 +42,62 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
     EditText  textset ;
     EditText  textget ;
     MyAdapter2 adapter2 ;
+    RecyclerView.LayoutManager layoutmangerr ;
     int s , a;
     TextView textViewvv;
     TextToSpeech mtts ;
 
-    ActivityTranslateBinding binding;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding= DataBindingUtil.setContentView(this,R.layout.activity_translate);
-
-        /*
-        * CTRL F for find
-        * ctrl r for find and replace
-        * ctrl space for show complete hints
-        * tab to select a hind and delete old name
-        * ctrl tab
-        *
-        * */
-
-
-
+        setContentView(R.layout.activity_translate);
         bbbbb = "";
-//        button = findViewById(R.id.button);
-       buttonn= findViewById(R.id.buttoncv);
 
-        binding.buttonTranslate.setVisibility(View.INVISIBLE);
+        button = findViewById(R.id.button);
+        buttonn= findViewById(R.id.buttoncv);
+
+        button.setVisibility(View.INVISIBLE);
         buttonn.setVisibility(View.INVISIBLE);
-
-        array = new ArrayList<>();
-        araay2 = new ArrayList<>();str = new ArrayList<>();
-
+        array = new ArrayList<>();araay2 = new ArrayList<>();str = new ArrayList<>();
         recyclerVieww = findViewById(R.id.nested);
         recyclerVieww.setHasFixedSize(true);
         textget=findViewById(R.id.texevew1);
         textset=findViewById(R.id.text11);
 
-     //   getWindow().setStatusBarColor(ContextCompat.getColor(Translate.this, R.color.good5));
-      //  getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        //        android:layoutDirection="ltr" بتعدل الريسيكلرفيو من اليمين الي الشمال
+        //   getWindow().setStatusBarColor(ContextCompat.getColor(Translate.this, R.color.good5));
+        //  getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
-        s = 0 ; a = 0 ;
+        s = 0 ;
+        a = 0 ;
 
-                SharedPreferences shrd = getSharedPreferences("trans file", Context.MODE_PRIVATE);
-            s = Integer.parseInt(shrd.getString("counted", ""));
+        SharedPreferences shrd = getSharedPreferences("trans file", Context.MODE_PRIVATE);
+        s = Integer.parseInt(shrd.getString("counted", ""));
 
-            mtts = new TextToSpeech(this, i -> {
+        mtts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int i) {
 
                 if (i == TextToSpeech.SUCCESS){
-                 int result =   mtts.setLanguage(Locale.ENGLISH);
+                    int result =   mtts.setLanguage(Locale.ENGLISH);
 
                     if (result == TextToSpeech.LANG_MISSING_DATA
-                    || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                            || result == TextToSpeech.LANG_NOT_SUPPORTED) {
 
                         Log.e("TTS" , "Language not supported");
 
-                    }
 
-//                    else {
-//                        ////
-//                    }
+                    }else {
+
+                        ////
+                    }
                 }else {
                     Log.e("TTS" , "Initialization Filed");
                 }
-            });
+            }
+        });
 
         textViewvv = findViewById(R.id.texevew22);
         registerForContextMenu(textViewvv);
@@ -126,10 +114,10 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
                 String n = String.valueOf(textget.getText());
                 if (n.equals("")){
 
-                    binding.buttonTranslate.setVisibility(View.INVISIBLE);
+                    button.setVisibility(View.INVISIBLE);
 
                 }else {
-                    binding.buttonTranslate.setVisibility(View.VISIBLE);
+                    button.setVisibility(View.VISIBLE);
                     buttonn.setVisibility(View.INVISIBLE);
                 }
             }
@@ -140,23 +128,22 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
         });
 
 
-        binding.buttonTranslate.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                    if (bbbbb.equals("Arabic")) {
+                if (bbbbb.equals("Arabic")) {
 
-                        Translate_method2();
+                    Translate_method2();
 
-                    } else {
-                        Translate_method1();
-                    }
-
-                    binding.buttonTranslate.setVisibility(view.INVISIBLE);
-                    buttonn.setVisibility(View.VISIBLE);
+                } else {
+                    Translate_method1();
                 }
-        });
 
+                button.setVisibility(view.INVISIBLE);
+                buttonn.setVisibility(View.VISIBLE);
+            }
+        });
 
         for (int x = 1 ; x <= s ; ++x){
 
@@ -164,9 +151,10 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
             array.add(shrd .getString("world"+x , "")) ;
             araay2.add(shrd .getString("worldd"+x , "")) ;
 
-       }
-       send_to_Adapter();
+        }
+        send_to_Adapter();
     }
+
 
 
     public void btn_savee(View view) {
@@ -195,13 +183,13 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
 
         if (s > array.size()) {
 
-            for (int x=2; x<=s; ++x) {
+            for (int x = 2; x <= s; ++x) {
 
                 array.remove(0);
                 araay2.remove(0);
             }
 
-            for (int x=1; x <=s; ++x) {
+            for (int x=1; x <= s; ++x) {
 
                 String  num = shrd .getString("world"+x ,"");
                 String  num2 = shrd .getString("worldd"+x ,"");
@@ -209,7 +197,6 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
                 array.add(num);
                 araay2.add(num2);
             }
-
             textset .setText("");
             textget .setText("");
             Toast.makeText(Translate.this , "تم حفظ الترجمه" , Toast.LENGTH_SHORT).show();
@@ -217,8 +204,8 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
         }
     }
 
-
     public void send_to_Adapter (){
+
 
         recyclerVieww.setLayoutManager(new LinearLayoutManager(this ));
         adapter2 = new MyAdapter2 (this , array , araay2 , str, new MyAdapter.ItemClickListener() {
@@ -231,6 +218,8 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
         });
 
         recyclerVieww.setAdapter(adapter2);
+        layoutmangerr = new GridLayoutManager(this, 2);
+        recyclerVieww.setLayoutManager(layoutmangerr);
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT) {
             @Override
@@ -260,12 +249,12 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
 
                 }
 
-               editor.apply();
+                editor.apply();
 
-               array.remove(viewHolder.getAdapterPosition());
-               araay2.remove(viewHolder.getAdapterPosition());
-               adapter2.notifyDataSetChanged();
-               Toast.makeText(Translate.this , "تم الحذف" , Toast.LENGTH_SHORT).show();
+                array.remove(viewHolder.getAdapterPosition());
+                araay2.remove(viewHolder.getAdapterPosition());
+                adapter2.notifyDataSetChanged();
+                Toast.makeText(Translate.this , "تم الحذف" , Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(recyclerVieww);
 
@@ -278,10 +267,13 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 SharedPreferences shrd = getSharedPreferences("trans file", Context.MODE_PRIVATE);
+
                 s--;
+
                 if (a > 0){
-                a = Integer.parseInt(shrd.getString("countedd", ""));
-            }
+
+                    a = Integer.parseInt(shrd.getString("countedd", ""));
+                }
                 a++;
                 SharedPreferences.Editor editor = shrd .edit();
 
@@ -290,14 +282,14 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
 
 
                 int vv = viewHolder.getAdapterPosition();
-                 String favorite1 =  shrd.getString("world"+(vv+1) , "");
-                 String favorite2 =  shrd.getString("worldd"+(vv+1) , "");
+                String favorite1 =  shrd.getString("world"+(vv+1) , "");
+                String favorite2 =  shrd.getString("worldd"+(vv+1) , "");
 
-                 editor . putString("Favorite"+ a , favorite1);
-                 editor . putString("favoritee"+a , favorite2);
+                editor . putString("favorite"+ a , favorite1);
+                editor . putString("favoritee"+a , favorite2);
 
-                 editor.remove("world"+(vv+1));
-                 editor.remove("worldd"+(vv+1));
+                editor.remove("world"+(vv+1));
+                editor.remove("worldd"+(vv+1));
 
                 for (int c=(vv+1); c<= (s+1)  ; ++c ) {
 
@@ -310,18 +302,20 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
                 }
 
                 editor.apply();
+
                 array.remove(viewHolder.getAdapterPosition());
                 araay2.remove(viewHolder.getAdapterPosition());
                 adapter2.notifyDataSetChanged();
 
                 Toast.makeText(Translate.this , "تم نقلها الي الكلمات التي تم حفظها" , Toast.LENGTH_SHORT).show();
 
+
             }
         }).attachToRecyclerView(recyclerVieww);
 
     }
 
-    public void btnMain(View view) {
+    public void btn_main(View view) {
 
         SharedPreferences shrdd = getSharedPreferences("save file" , Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = shrdd .edit();
@@ -331,12 +325,13 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
         Intent intent = new Intent(this , MainActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+
         finish();
 
     }
 
     public void btn_save9() {
-        Intent intent = new Intent(this , Favorite.class);
+        Intent intent = new Intent(this ,Favorite.class);
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
         startActivity(intent);
     }
@@ -348,6 +343,7 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
 
                 Language.AUTO_DETECT,
                 Language.ENGLISH,
+
                 textget.getText().toString()
         );
 
@@ -364,7 +360,7 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
         });
 
 
-        }
+    }
 
     public void Translate_method2 (){
 
@@ -411,18 +407,14 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
         switch (menuItem.getItemId()){
             case R.id.item : bbbbb = "Arabic" ;
                 textViewvv.setText("ترجمه الي اللغة العربيه");
-            return true ;
-
+                return true ;
             case R.id.item2 : bbbbb = "";
                 textViewvv.setText("ترجمه الي اللغة الانجليزيه");
-            return true ;
-
+                return true ;
             case R.id.btn_save9 : btn_save9();
-            return true ;
-
+                return true ;
             case R.id.btn_save900: data();
-            return true ;
-
+                return true ;
             default :
                 return false ;
         }
@@ -434,8 +426,9 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
 
         SharedPreferences shrd = getSharedPreferences("trans file", Context.MODE_PRIVATE);
         String vb  = shrd .getString("world"+v , "") ;
-      //  mtts.setPitch(10);
-     //   mtts.setSpeechRate(10);
+
+        //  mtts.setPitch(10);
+        //   mtts.setSpeechRate(10);
         mtts.speak(vb, TextToSpeech.QUEUE_FLUSH, null);
     }
 
@@ -451,8 +444,9 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
 
         if (mtts!= null){
 
-         mtts.stop();
-         mtts.shutdown();
+            mtts.stop();
+            mtts.shutdown();
+
         }
         super.onDestroy();
     }
@@ -461,4 +455,5 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
         Intent intent = new Intent(this , MyDataBase.class);
         startActivity(intent);
     }
+
 }
