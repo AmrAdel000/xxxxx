@@ -47,6 +47,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder2> {
             mItemListener.onItemClick(c.get(position));//it will get the position of our item in our resycler vew
         });
         ///////////////////
+
         String fullName = mergeNames("amr", "adel");
     }
 
