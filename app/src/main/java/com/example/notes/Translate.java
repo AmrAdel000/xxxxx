@@ -3,14 +3,17 @@ package com.example.notes;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -27,6 +30,8 @@ import android.widget.Toast;
 
 import com.mannan.translateapi.Language;
 import com.mannan.translateapi.TranslateAPI;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -46,7 +51,7 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
     int s , a;
     TextView textViewvv;
     TextToSpeech mtts ;
-
+    String ba ;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -55,24 +60,19 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
         setContentView(R.layout.activity_translate);
         bbbbb = "";
 
-        button = findViewById(R.id.button);
-        buttonn= findViewById(R.id.buttoncv);
+        button = findViewById(R.id.button);   buttonn= findViewById(R.id.buttoncv);
+        button.setVisibility(View.INVISIBLE); buttonn.setVisibility(View.INVISIBLE);
 
-        button.setVisibility(View.INVISIBLE);
-        buttonn.setVisibility(View.INVISIBLE);
         array = new ArrayList<>();araay2 = new ArrayList<>();str = new ArrayList<>();
         recyclerVieww = findViewById(R.id.nested);
         recyclerVieww.setHasFixedSize(true);
-        textget=findViewById(R.id.texevew1);
-        textset=findViewById(R.id.text11);
+        textget=findViewById(R.id.texevew1);  textset=findViewById(R.id.text11);
 
         //        android:layoutDirection="ltr" بتعدل الريسيكلرفيو من اليمين الي الشمال
         //   getWindow().setStatusBarColor(ContextCompat.getColor(Translate.this, R.color.good5));
         //  getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
-        s = 0 ;
-        a = 0 ;
-
+        swith();
         SharedPreferences shrd = getSharedPreferences("trans file", Context.MODE_PRIVATE);
         s = Integer.parseInt(shrd.getString("counted", ""));
 
@@ -214,6 +214,7 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
 
                 speak(details);
 
+
             }
         });
 
@@ -269,24 +270,20 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
                 SharedPreferences shrd = getSharedPreferences("trans file", Context.MODE_PRIVATE);
 
                 s--;
-
-                if (a > 0){
-
-                    a = Integer.parseInt(shrd.getString("countedd", ""));
-                }
+                a = Integer.parseInt(shrd.getString("countedd", "0"));
                 a++;
+
                 SharedPreferences.Editor editor = shrd .edit();
 
                 editor . putString("counted" , String.valueOf(s));
                 editor . putString("countedd" , String.valueOf(a));
 
-
                 int vv = viewHolder.getAdapterPosition();
                 String favorite1 =  shrd.getString("world"+(vv+1) , "");
                 String favorite2 =  shrd.getString("worldd"+(vv+1) , "");
 
-                editor . putString("favorite"+ a , favorite1);
-                editor . putString("favoritee"+a , favorite2);
+                editor . putString("favorite"+  a , favorite1);
+                editor . putString("favoritee"+ a , favorite2);
 
                 editor.remove("world"+(vv+1));
                 editor.remove("worldd"+(vv+1));
@@ -308,7 +305,6 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
                 adapter2.notifyDataSetChanged();
 
                 Toast.makeText(Translate.this , "تم نقلها الي الكلمات التي تم حفظها" , Toast.LENGTH_SHORT).show();
-
 
             }
         }).attachToRecyclerView(recyclerVieww);
@@ -415,6 +411,11 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
                 return true ;
             case R.id.btn_save900: data();
                 return true ;
+            case R.id.btn_save1000:
+                Intent intent = new Intent(this , Test.class);
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+                startActivity(intent);
+                return true ;
             default :
                 return false ;
         }
@@ -454,6 +455,50 @@ public class Translate extends AppCompatActivity implements PopupMenu.OnMenuItem
     public void data (){
         Intent intent = new Intent(this , MyDataBase.class);
         startActivity(intent);
+    }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+
+    public void swith  (){
+
+        SharedPreferences   shrdd = getSharedPreferences("trans file", Context.MODE_PRIVATE);
+
+        ba = shrdd .getString("theme_number" , "a");
+
+        switch (ba){
+
+            case "one"   : Set_Activity_color("#7E91AF"); break;
+            case "tow"   : Set_Activity_color("#141E37"); break;
+            case "three" : Set_Activity_color("#4563C7"); break;
+            case "normal" : Set_Activity_color("normal"); break;
+            case "materal" : Set_Activity_color("materal"); break;
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @SuppressLint("ResourceAsColor")
+    public void Set_Activity_color (String color){
+
+        if (color.equals("normal")) {
+
+            getWindow().setStatusBarColor(ContextCompat.getColor(Translate.this, R.color.white100));
+            View vew = this.getWindow().getDecorView();
+                vew.setBackgroundColor(ContextCompat.getColor(Translate.this, R.color.white100));
+//
+        }else if (color.equals("materal")){
+
+            getWindow().setStatusBarColor(Color.parseColor("#7B8DAB"));
+            View vew = this.getWindow().getDecorView();
+            vew.setBackground(ContextCompat.getDrawable(Translate.this, R.drawable.packgroundwall));
+
+        }else{
+
+            getWindow().setStatusBarColor(Color.parseColor(color));
+            View vew = this.getWindow().getDecorView();
+            vew.setBackgroundColor(Color.parseColor(color));
+
+        }
     }
 
 }

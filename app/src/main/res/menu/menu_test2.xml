@@ -10,4 +10,9 @@
         android:id="@+id/btn_save900"
         android:title="Database"
         />
+    <item
+        android:id="@+id/btn_save1000"
+        android:title="المربع"
+        />
+
 </menu>

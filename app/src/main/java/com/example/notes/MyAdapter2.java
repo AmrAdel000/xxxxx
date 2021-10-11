@@ -44,7 +44,11 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder2> {
         holder.mytext.setText(imagess.get(position));
         holder.mytext2.setText(images.get(position));
         holder.itemView.setOnClickListener(view -> {
-            mItemListener.onItemClick(c.get(position));//it will get the position of our item in our resycler vew
+
+     mItemListener.onItemClick(c.get(position));//it will get the position of our item in our resycler vew
+
+
+
         });
         ///////////////////
 

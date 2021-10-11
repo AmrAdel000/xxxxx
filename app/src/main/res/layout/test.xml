@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/drwerr"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/heder"
+        android:id="@+id/drawer"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_gravity="left"
+        app:menu="@menu/navigation">
+    </com.google.android.material.navigation.NavigationView>
+
+  <androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbarAlwaysDrawHorizontalTrack="true"
+
+    tools:context=".MainActivity">
+
+
+
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/bar"
+        android:layout_width="match_parent"
+        android:layout_height="298dp"
+        android:background="#00FFFFFF"
+
+        android:theme="@style/Theme.Notes">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:collapsedTitleGravity="right"
+
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+
+            app:titleEnabled="false">
+
+
+
+            <ImageButton
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="110dp"
+                android:layout_marginRight="176dp"
+                android:background="@drawable/ic_baseline_sort_24"
+                android:fitsSystemWindows="true"
+                android:onClick="main_menuer"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed" />
+
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center|right"
+                android:layout_marginTop="110dp"
+                android:layout_marginRight="7dp"
+                android:background="@drawable/ic_baseline_arrow_forward_ios_24"
+                android:fitsSystemWindows="true"
+                android:onClick="btn_translate"
+                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed" />
+
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center|right"
+                android:layout_marginTop="110dp"
+                android:layout_marginRight="324dp"
+                android:background="@drawable/sersh"
+                android:fitsSystemWindows="true"
+                android:onClick="btn_newww"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed" />
+
+            <ImageButton
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_gravity="center|right"
+                android:layout_marginTop="110dp"
+                android:layout_marginRight="285dp"
+                android:background="@drawable/ic_baseline_add_24"
+                android:fitsSystemWindows="true"
+                android:onClick="btn_newww"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingBottom="20dp"
+                android:text="كل الملاحظات"
+                android:textColor="@color/main1title"
+                android:textSize="40dp"
+                app:layout_collapseMode="parallax" />
+
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="183dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="75dp"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="167dp"
+                android:gravity="left"
+                android:text="الملاحظات 88"
+                android:textSize="18dp"
+                app:layout_collapseMode="parallax" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/nested"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="1dp"
+        app:layout_anchorGravity="center_horizontal"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+  </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

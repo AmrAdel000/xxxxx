@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white100"
     tools:context=".Translate">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/barr"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@color/white100"
+        android:background="#00F2F2F2"
         android:fitsSystemWindows="true"
         android:theme="@style/Theme.Notes">
 
@@ -41,28 +40,13 @@
                 android:textSize="26dp"
                 app:layout_collapseMode="parallax" />
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="70dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="240dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
-                android:gravity="center"
-                android:text="ترجمه"
-                android:textColor="#20262F"
-                android:textSize="16dp"
-                app:backgroundTint="#E4E4E4"
-                app:cornerRadius="90dp" />
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="65dp"
                 android:layout_marginRight="174dp"
-                android:onClick="btnMain"
+                android:onClick="main_menue"
                 android:background="@android:drawable/ic_menu_sort_by_size"
                 android:fitsSystemWindows="true"
                 app:contentScrim="?attr/colorPrimary"

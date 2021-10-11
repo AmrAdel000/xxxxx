@@ -18,4 +18,7 @@
     <item
         android:id="@+id/item4"
         android:title="قفل الملاحظة"/>
+    <item
+        android:id="@+id/item5"
+        android:title="حزف الملاحظة"/>
 </menu>
