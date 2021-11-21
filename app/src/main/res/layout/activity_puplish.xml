@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/_10sdp"
+    android:background="@color/white200"
+    tools:context=".puplish">
+
+    <Button
+        android:id="@+id/button17"
+        android:layout_width="280dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="408dp"
+        android:onClick="puplish"
+        android:text="نشر"
+        android:textSize="@dimen/_15sdp"
+        app:backgroundTint="#0A3585"
+        app:cornerRadius="@dimen/_60sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:background="#00FFFFFF"
+        android:ems="10"
+        android:hint="العنوان"
+        android:inputType="textPersonName"
+        android:minHeight="@dimen/_30ssp"
+        android:textColor="#007185"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+
+        android:layout_marginTop="128dp"
+        android:foregroundGravity="center_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editTextTextPersonName6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00FCFCFC"
+                android:minHeight="@dimen/_30ssp"
+                android:ems="10"
+                android:hint="المنشور"
+                android:inputType="textMultiLine|textPersonName|textImeMultiLine" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="365dp"
+        android:layout_height="62dp"
+        android:autoLink="all|phone|none|email"
+        android:gravity="center"
+        android:text="يمكن للمندوبين فقط النشر
+اذا كنت مندوب راسلنا علي الواتس 01099375267"
+        android:textColor="#0A3585"
+        android:textColorLink="#002242"
+        android:textSize="@dimen/_15sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

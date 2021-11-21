@@ -1,12 +1,15 @@
 package com.example.notes;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -17,9 +20,9 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder2> {
 
     ArrayList<String> images;
     ArrayList<String> imagess;
-
+    String s ;
     Context context;
-
+    SharedPreferences shrd ;
     ArrayList<String> c;
 
     public MyAdapter2(Context ct, ArrayList<String> array, ArrayList<String> araay2, ArrayList<String> intt, MyAdapter.ItemClickListener itemClickListener) {
@@ -28,6 +31,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder2> {
         images = araay2;
         imagess = array;
         c = intt;
+        shrd = context.getSharedPreferences("trans file", Context.MODE_PRIVATE);
         this.mItemListener = itemClickListener;
     }
 
@@ -41,11 +45,21 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder2> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder2 holder, int position) {
+
+
+        s = shrd .getString("theme_number" , "normal");
+
+        switch (s){
+            case "materal":holder.itemView.setBackground(ContextCompat.getDrawable(context, R.drawable.pupmenu)); break;
+        }
+
+
+
         holder.mytext.setText(imagess.get(position));
         holder.mytext2.setText(images.get(position));
         holder.itemView.setOnClickListener(view -> {
 
-     mItemListener.onItemClick(c.get(position));//it will get the position of our item in our resycler vew
+     mItemListener.onItemClick(c.get(position) , images.get(position));//it will get the position of our item in our resycler vew
 
 
 
@@ -81,8 +95,5 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder2> {
             mytext = itemView.findViewById(R.id.textout);
             mytext2 = itemView.findViewById(R.id.textinn);
         }
-
-
     }
-
 }

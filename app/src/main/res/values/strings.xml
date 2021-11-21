@@ -4,5 +4,29 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Open">Open</string>
     <string name="Close">Close</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+
+    <string-array name="dayes">
+
+
+        <item>السبت</item>
+        <item>الاحد</item>
+        <item>الاثنين</item>
+        <item>الثلاثاء</item>
+        <item>الاربع</item>
+        <item>الخميس</item>
+        <item>الجمعة</item>
+
+    </string-array>
+
+
+    <string-array name="spinner">
+
+        <item>ترجمه الي اللغه العربيه</item>
+        <item>ترجمه الي اللغه الانجليزيه</item>
+
+    </string-array>
+
 
 </resources>

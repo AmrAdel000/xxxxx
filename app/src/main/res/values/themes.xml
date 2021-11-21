@@ -19,4 +19,15 @@
 
     </style>
 
+    <style name="ThemeOverlay.Notes.AppWidgetContainer" parent="">
+        <item name="appWidgetBackgroundColor">@color/light_blue_600</item>
+        <item name="appWidgetTextColor">@color/light_blue_50</item>
+    </style>
+
+    <style name="ThemeOverlay.Notes.AppWidgetContainerr" parent="">
+        <item name="appWidgetBackgroundColor">@color/good</item>
+        <item name="appWidgetTextColor">@color/good</item>
+    </style>
+
+
 </resources>

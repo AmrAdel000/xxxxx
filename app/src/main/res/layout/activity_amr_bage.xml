@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white100"
+    tools:context=".Amr_bage">
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="@dimen/_188sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:onClick="Amr_profile"
+        android:text="تسجيل الدخول"
+        android:textColor="#D52013"
+        app:backgroundTint="@color/white200"
+        app:cornerRadius="@dimen/_60sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.467" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword2"
+        android:layout_width="@dimen/_248sdp"
+        android:layout_height="@dimen/_44sdp"
+        android:ems="10"
+        android:hint="ادخل رمز الدخول"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.364" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

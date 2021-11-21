@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
 <item
     android:id="@+id/home0"
     android:title="تغيير الثيم"
-    android:icon="@drawable/ic_baseline_arrow_forward_ios_24"/>
+    android:icon="@drawable/themeicon"/>
 
     <item
-        
         android:id="@+id/home2"
-        android:title="انشاء تزكير"
-        android:icon="@drawable/ic_baseline_add_24"/>
-    <item
-        android:id="@+id/home3"
-        android:title="احااا"
-        android:icon="@drawable/sersh"/>
-    <item
-        android:id="@+id/home4"
-        android:title="احااا"
-        android:icon="@drawable/sersh"/>
+        android:title="انشاء تذكير"
+        android:icon="@drawable/alarmmm_24"/>
+        <item
+            android:id="@+id/home4"
+            android:title="كلمة السر"
+            android:icon="@drawable/key"/>
     <item
         android:id="@+id/home5"
-        android:title="نبزه عن المبرمج"
-        android:icon="@drawable/sersh"/>
-
+        android:title="المساعده والدعم"
+        android:icon="@drawable/person"/>
+    <item
+        android:id="@+id/home6"
+        android:title="حساب الاداره"
+        android:icon="@drawable/person"/>
+    <item
+        android:id="@+id/home7"
+        android:title="منشورات الجامعة"
+        android:icon="@drawable/ic_baseline_note_24"/>
 </menu>

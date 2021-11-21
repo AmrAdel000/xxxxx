@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/_190sdp"
+    android:layout_marginHorizontal="@dimen/_5sdp"
+    android:layout_marginTop="@dimen/_6sdp"
+    android:layout_marginBottom="@dimen/_3sdp"
+    android:background="@drawable/itemback"
+    android:longClickable="true"
+    android:padding="@dimen/_1sdp"
+    android:elevation="@dimen/_2sdp"
+    android:layout_span="2"
+    android:paddingBottom="@dimen/_3sdp"
+    android:layoutDirection="rtl">
+
+    <TextView
+        android:id="@+id/textout"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_20sdp"
+        android:paddingLeft="@dimen/_5sdp"
+        android:paddingRight="@dimen/_10sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:text="Note Number 1"
+        android:textColor="@color/row1title"
+        android:textSize="@dimen/_13sdp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textinn"
+        android:layout_width="@dimen/_293sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:autoLink="all|web|phone|none|email"
+        android:gravity="center"
+        android:paddingLeft="@dimen/_5sdp"
+        android:paddingTop="@dimen/_26sdp"
+        android:paddingRight="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_30sdp"
+        android:text="dcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd
+dccddcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcfhftjrftjnrftjntfrhjnrtjrtjnrtjrtjnrftjnrftjtfrdilululululyulyuyukyukyukuykuyuk,uluiluiluiluiluilulylcdcdcdcdcdcdcdccdcdcdcdcdcdcd
+cdcdcdcdcdcdcdcdcdcdcdcdcdccdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd
+dccddcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcfhftjrftjnrftjntfrhjnrtjrtjnrtjrtjnrftjnrftjtfrdilululululyulyuyukyukyukuykuyuk,uluiluiluiluiluilulylcdcdcdcdcdcdcdccdcdcdcdcdcdcd
+cdcdcdcdcdcdcdcdcdcdcdcdcdccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+        android:textSize="@dimen/_15sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.38" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="@dimen/_201sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginStart="@dimen/_42sdp"
+        android:layout_marginLeft="@dimen/_42sdp"
+        android:elevation="0dp"
+        android:gravity="right"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingRight="@dimen/_5sdp"
+        android:text="اضافة تعليق . . ..."
+        android:textColor="@color/main2textvew2"
+        app:backgroundTint="@color/white100"
+        app:cornerRadius="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.863"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_22sdp"
+        android:paddingBottom="@dimen/_5sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.967"
+        app:srcCompat="@drawable/ic_baseline_favorite_border_24"
+
+        tools:ignore="VectorDrawableCompat" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.019" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

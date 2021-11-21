@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white100"
+    android:scrollbarAlwaysDrawHorizontalTrack="true"
+    tools:context=".Alarm"
+    android:layoutDirection="rtl">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/barr"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_228sdp"
+        android:background="#00FFFFFF"
+
+        android:theme="@style/Theme.Notes">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+
+            android:id="@+id/collapsing_toolbarr"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:collapsedTitleGravity="right"
+
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+
+            app:titleEnabled="false">
+
+            <ImageButton
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_76sdp"
+                android:layout_marginRight="@dimen/_135sdp"
+                android:background="@drawable/ic_baseline_more_vert_24"
+                android:fitsSystemWindows="true"
+                android:onClick="menuealarm"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed" />
+
+
+            <ImageButton
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_gravity="center|right"
+                android:layout_marginTop="@dimen/_76sdp"
+                android:layout_marginRight="@dimen/_245sdp"
+                android:background="@drawable/ic_baseline_add_24"
+                android:fitsSystemWindows="true"
+                android:onClick="Alarrm3"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed" />
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_168sdp"
+                android:gravity="center"
+                android:text="00 : 00"
+                android:textSize="@dimen/_35sdp"
+                android:textColor="@color/main1title"
+                app:layout_collapseMode="parallax"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.142" />
+
+
+            <TextView
+                android:id="@+id/AlarmText"
+                android:layout_width="@dimen/_140sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginRight="@dimen/_84sdp"
+
+                android:layout_marginTop="@dimen/_111sdp"
+                android:gravity="center"
+                android:text="المزكرات : 4"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/main2textvew2"
+                app:layout_collapseMode="parallax" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarr"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/resyclerr"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_1sdp"
+        app:layout_anchorGravity="center_horizontal"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+    <Button
+        android:id="@+id/bot_stop2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="stop"
+        android:layout_marginTop="@dimen/_513sdp"
+        android:layout_marginRight="@dimen/_39sdp"
+        app:backgroundTint="#43B4E8"
+        app:cornerRadius="@dimen/_324sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.826"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.921" />
+
+    <Button
+        android:id="@+id/but_start22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="select"
+        android:layout_marginRight="@dimen/_190sdp"
+        android:layout_marginTop="@dimen/_513sdp"
+        app:backgroundTint="#43B4E8"
+        app:cornerRadius="@dimen/_324sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.178"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.921" />
+
+    <NumberPicker
+        android:id="@+id/numppp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/_130sdp"
+        android:layout_marginTop="@dimen/_290sdp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

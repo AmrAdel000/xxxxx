@@ -6,7 +6,7 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FF000000</color>
     <color name="good">#7E91AF</color>
     <color name="good2">#141E37</color>
     <color name="good3">#4563C7</color>
@@ -24,4 +24,9 @@
     <color name="buttontextcolor">#D4E0F3</color>
     <color name="textbook">#DADADA</color>
     <color name="ddddd" tools:ignore="ReferenceType">@drawable/pupmenu</color>
+    <color name="Alarm">#4663C7</color>
+    <color name="lock">#323232</color>
+    <color name="facecolor">#121212</color>
+    <color name="facecoloritem">#1A1A1A</color>
+    <color name="menucolor">#CDFFFFFF</color>
 </resources>

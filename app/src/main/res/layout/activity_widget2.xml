@@ -1,0 +1,26 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layyyy"
+    android:padding="@dimen/_8sdp"
+    android:layoutDirection="rtl"
+    android:theme="@style/ThemeOverlay.Notes.AppWidgetContainerr">
+
+
+        <TextView
+            android:id="@+id/updatee"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/_3sdp"
+            android:autoLink="all|web|none|email"
+            android:background="#00F2F2F2"
+            android:gravity="start|top"
+            android:text="dcdcx xcxdcdc"
+            android:textColor="#F4F0F0"
+            android:textColorLink="#103888"
+            android:textSize="@dimen/_15sdp" />
+
+</LinearLayout>

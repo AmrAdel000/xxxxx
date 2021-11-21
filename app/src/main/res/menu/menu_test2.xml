@@ -3,16 +3,12 @@
 
     <item
         android:id="@+id/btn_save9"
+        android:icon="@drawable/ic_baseline_g_translate_24"
         android:title="الكلمات التي تم حفظها"
         />
-
     <item
-        android:id="@+id/btn_save900"
-        android:title="Database"
-        />
-    <item
-        android:id="@+id/btn_save1000"
-        android:title="المربع"
+        android:id="@+id/btn_firebase_words"
+        android:title="جميع الكلمات"
         />
 
 </menu>
